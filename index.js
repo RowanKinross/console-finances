@@ -102,48 +102,14 @@ var currentProfit ;
 
 for (i = 0; i < monthsNo; i++ ) {
   currentMonth = finances[i];
-  currentProfit = (currentMonth[1]).toString();
-  console.log(currentProfit);
-  console.log(financesSum + currentProfit[i]);
-  
-  financesSum = financesSum + currentProfit[i];
+  currentProfit = (currentMonth[1]);
+  //console.log(currentProfit);
+  financesSum += currentProfit;
 }
-console.log(financesSum);
-
-// let financesSum = financesSum[i] + currentProfit[i];
-
-// for (i = 0; i < (monthsNo-1); i++ ) {
-// financesSum = financesSum + currentProfit[i];
-// }
-// console.log(financesSum);
-
-
-// for (i = 0; i < monthsNo-1; i++ ) {
-
-
-// //currentProfit.reduce(function(total, currentValue, currentIndex, arr), initialValue)
-
-// console.log(financesSum);
-
-// create an array
-  // currentProfArr = concat.currentProfit;
-  // console.log(currentProfArr);
-
-  
-// for (i = 1; i < monthsNo; i++ ) {
-// financesSum = currentProfit[i];
-// }
-// console.log(financesSum);
+console.log("Total:   $" + financesSum);
 
 // create a variable for the sum and initialize it
 // let sum = 0;
-
-// // iterate over each item in the array
-// for (let i = 0; i < monthsNo; i++ ) {
-//   sum += currentProfit[i];
-// }
-
-// console.log(sum) // 15
 
 
 
