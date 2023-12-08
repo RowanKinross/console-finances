@@ -90,16 +90,122 @@ var finances = [
 
 console.log("Financial Analysis")
 console.log("------------------")
-// The total number of months included in the dataset.
-  // create a variable for the no. of months
+//! The total number of months included in the dataset.
+  //! create a variable for the no. of months
 var monthsNo = finances.length;
-console.log("Total Months:  " + monthsNo);
+console.log("Total Months:  " + monthsNo); //86
 // The net total amount of Profit/Losses over the entire period.
+  // create a variable for the sum of the finances
+var financesSum = 0 ;
+var currentMonth ;
+var currentProfit ;
+
+for (i = 0; i < monthsNo; i++ ) {
+  currentMonth = finances[i];
+  currentProfit = (currentMonth[1]).toString();
+  console.log(currentProfit);
+  console.log(financesSum + currentProfit[i]);
+  
+  financesSum = financesSum + currentProfit[i];
+}
+console.log(financesSum);
+
+// let financesSum = financesSum[i] + currentProfit[i];
+
+// for (i = 0; i < (monthsNo-1); i++ ) {
+// financesSum = financesSum + currentProfit[i];
+// }
+// console.log(financesSum);
+
+
+// for (i = 0; i < monthsNo-1; i++ ) {
+
+
+// //currentProfit.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+
+// console.log(financesSum);
+
+// create an array
+  // currentProfArr = concat.currentProfit;
+  // console.log(currentProfArr);
+
+  
+// for (i = 1; i < monthsNo; i++ ) {
+// financesSum = currentProfit[i];
+// }
+// console.log(financesSum);
+
+// create a variable for the sum and initialize it
+// let sum = 0;
+
+// // iterate over each item in the array
+// for (let i = 0; i < monthsNo; i++ ) {
+//   sum += currentProfit[i];
+// }
+
+// console.log(sum) // 15
+
+
+
+  //need a var for profit-loss
+  //need to compare data for loop that we're on to the data for the previous loop
+    //need var for current and previous once we start the loop
+    //if statement to make sure on at least month 2 (array index 1) before starting to figure out profit-loss
+      //somehow extract the dates from the data so you are left with just the profits
+      //first concatonate?
+
 
 // The average of the changes in Profit/Losses over the entire period.
-
+  //need a var to track the average
+  //make use of var set up before
 // You will need to track what the total change in Profit/Losses are from month to month and then find the average.
 // (Total/(Number of months - 1))
+
 // The greatest increase in Profit/Losses (date and amount) over the entire period.
+  //need a var for greatest increase
+  // on each iteration, compare the current change in profitloss to the previous
+  //if change is more, replace what's currently stored
 
 // The greatest decrease in Profit/Losses (date and amount) over the entire period.
+  //need a var for greatest decrease
+  // on each iteration, compare the current change in profitloss to the previous
+  //if change is less, replace what's currently stored
+
+  //var
+  //!total no of months
+  //rolling total profits
+  //average change 
+  //greatest increase (month & amount)
+  //greatest decrease (month & amount)
+
+  //var declared inside the loop
+  //current data point
+  //previous data point
+
+
+
+
+
+
+
+
+
+
+// var monthsOfYear = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+// var years = ['-2010', '-2011', '-2012', '-2013', '-2014', '-2015', '-2016', '-2017'];
+
+
+// console.log(financesSum)
+
+// for (let i = 0; i < monthsNo; i++ ) {
+//  var financesNumbers = financesSum.replace(monthsOfYear,0);
+//   }
+
+// console.log(financesNumbers);
+
+
+
+// for (let i = 0; i < monthsNo; i++ ) {
+//  var financesProfits = finances - monthsOfYear;
+//  console.log(financesProfits); 
+// }
