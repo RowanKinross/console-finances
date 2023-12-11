@@ -87,33 +87,58 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-
+// title
 console.log("Financial Analysis")
 console.log("------------------")
-//! The total number of months included in the dataset.
-  //! create a variable for the no. of months
+
+
+// 1. total months -  create a variable for the no. of months
 var monthsNo = finances.length;
 console.log("Total Months:  " + monthsNo); //86
-// The net total amount of Profit/Losses over the entire period.
-  // create a variable for the sum of the finances
+
+
+
+
+// 2. The net total amount of Profit/Losses over the entire period.
+  // create a variable for the sum of the finances and initialize it
 var financesSum = 0 ;
 var currentMonth ;
 var currentProfit ;
+var nextMonth ;
+var profitLoss ;
+var profitLossSum = 0;
+var profitLossAverage ;
+var nextProfit ;
 
 for (i = 0; i < monthsNo; i++ ) {
-  currentMonth = finances[i];
-  currentProfit = (currentMonth[1]);
-  //console.log(currentProfit);
-  financesSum += currentProfit;
-}
-console.log("Total:   $" + financesSum);
-
-// create a variable for the sum and initialize it
-// let sum = 0;
+  currentMonth = finances[i]; // current month is each index of the finances array
+  currentProfit = currentMonth[1]; // current profit is index '1' of each current-month item
+  // console.log(currentProfit);  - to test if the array has worked
+  financesSum += currentProfit; // all the currentProfit values added incrementally
 
 
 
-  //need a var for profit-loss
+  // 3. Average changes in profits/losses over the period
+    // each item subtracting the item before it 
+    if (i === 85) { continue; }
+    nextMonth = finances[i+1];
+    // console.log(nextMonth) - to test if the new array has worked
+    nextProfit = nextMonth[1];
+    profitLoss = nextProfit - currentProfit;
+    profitLossSum += profitLoss;
+  }
+    // finding the average of this new array - total / no.of items
+    profitLossAverage = profitLossSum / (monthsNo -1);
+
+
+
+console.log("Total:   $" + financesSum); // $38382578
+console.log("Average Change:   $" + profitLossAverage.toFixed(2));
+
+
+
+
+// need a var for profit-loss
   //need to compare data for loop that we're on to the data for the previous loop
     //need var for current and previous once we start the loop
     //if statement to make sure on at least month 2 (array index 1) before starting to figure out profit-loss
