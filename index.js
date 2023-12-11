@@ -110,7 +110,9 @@ var profitLoss ;
 var profitLossSum = 0;
 var profitLossAverage ;
 var greatestIncrease = 0;
+var greatestIncreaseDate ;
 var greatestDecrease = 0;
+var greatestDecreaseDate ;
 
 
 for (i = 0; i < monthsNo; i++ ) {
@@ -130,72 +132,26 @@ for (i = 0; i < monthsNo; i++ ) {
     profitLoss = nextProfit - currentProfit;
     profitLossSum += profitLoss;
 
+// 4. The greatest increase and decrease in Profit/Losses (date and amount) over the entire period.
+  // need a var for greatest increase & decrease
+  // greatest increase = nextProfit - current profit if greater than the last iteration and the opposite for the decrease
+  // if profitLoss > greatest increase then change value, else continue
     if (profitLoss > greatestIncrease) {
-    greatestIncrease = profitLoss; 
+    greatestIncrease = profitLoss;
+    greatestIncreaseDate = nextMonth[0]; // Find the corresponding month for the increase and decrease
     }
     else if (profitLoss < greatestDecrease) {
     greatestDecrease = profitLoss; 
+    greatestDecreaseDate = nextMonth[0];
     }   
     else {continue;}
-    
+
   }
   // finding the average of this new array - total / no.of items
   profitLossAverage = profitLossSum / (monthsNo -1);
   
   
-  
 console.log("Total:   $" + financesSum); // $38382578
 console.log("Average Change:   $" + profitLossAverage.toFixed(2));
-console.log(greatestIncrease);
-console.log(greatestDecrease);
-
-
-// 4. The greatest increase in Profit/Losses (date and amount) over the entire period.
-  //need a var for greatest increase
-  // greatest increase = nextProfit - current profit if greater than the last iteration
-  // if profitLoss > greatest increase then change value, else continue
-
-
-// The greatest decrease in Profit/Losses (date and amount) over the entire period.
-  //need a var for greatest decrease
-  // on each iteration, compare the current change in profitloss to the previous
-  //if change is less, replace what's currently stored
-
-  //var
-  //!total no of months
-  //rolling total profits
-  //average change 
-  //greatest increase (month & amount)
-  //greatest decrease (month & amount)
-
-  //var declared inside the loop
-  //current data point
-  //previous data point
-
-
-
-
-
-
-
-
-
-
-// var monthsOfYear = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-// var years = ['-2010', '-2011', '-2012', '-2013', '-2014', '-2015', '-2016', '-2017'];
-
-
-// console.log(financesSum)
-
-// for (let i = 0; i < monthsNo; i++ ) {
-//  var financesNumbers = financesSum.replace(monthsOfYear,0);
-//   }
-
-// console.log(financesNumbers);
-
-
-
-// for (let i = 0; i < monthsNo; i++ ) {
-//  var financesProfits = finances - monthsOfYear;
-//  console.log(financesProfits); 
-// }
+console.log("Greatest Increase in Profits/Losses:   " + greatestIncreaseDate + " ($" + greatestIncrease + ")");
+console.log("Greatest Decrease in Profits/Losses:   " + greatestDecreaseDate + " ($" + greatestDecrease + ")");
