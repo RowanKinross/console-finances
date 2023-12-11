@@ -105,10 +105,13 @@ var financesSum = 0 ;
 var currentMonth ;
 var currentProfit ;
 var nextMonth ;
+var nextProfit ;
 var profitLoss ;
 var profitLossSum = 0;
 var profitLossAverage ;
-var nextProfit ;
+var greatestIncrease = 0;
+var greatestDecrease = 0;
+
 
 for (i = 0; i < monthsNo; i++ ) {
   currentMonth = finances[i]; // current month is each index of the finances array
@@ -118,7 +121,7 @@ for (i = 0; i < monthsNo; i++ ) {
 
 
 
-  // 3. Average changes in profits/losses over the period
+// 3. Average changes in profits/losses over the period
     // each item subtracting the item before it 
     if (i === 85) { continue; }
     nextMonth = finances[i+1];
@@ -126,36 +129,32 @@ for (i = 0; i < monthsNo; i++ ) {
     nextProfit = nextMonth[1];
     profitLoss = nextProfit - currentProfit;
     profitLossSum += profitLoss;
+
+    if (profitLoss > greatestIncrease) {
+    greatestIncrease = profitLoss; 
+    }
+    else if (profitLoss < greatestDecrease) {
+    greatestDecrease = profitLoss; 
+    }   
+    else {continue;}
+    
   }
-    // finding the average of this new array - total / no.of items
-    profitLossAverage = profitLossSum / (monthsNo -1);
-
-
-
+  // finding the average of this new array - total / no.of items
+  profitLossAverage = profitLossSum / (monthsNo -1);
+  
+  
+  
 console.log("Total:   $" + financesSum); // $38382578
 console.log("Average Change:   $" + profitLossAverage.toFixed(2));
+console.log(greatestIncrease);
+console.log(greatestDecrease);
 
 
-
-
-// need a var for profit-loss
-  //need to compare data for loop that we're on to the data for the previous loop
-    //need var for current and previous once we start the loop
-    //if statement to make sure on at least month 2 (array index 1) before starting to figure out profit-loss
-      //somehow extract the dates from the data so you are left with just the profits
-      //first concatonate?
-
-
-// The average of the changes in Profit/Losses over the entire period.
-  //need a var to track the average
-  //make use of var set up before
-// You will need to track what the total change in Profit/Losses are from month to month and then find the average.
-// (Total/(Number of months - 1))
-
-// The greatest increase in Profit/Losses (date and amount) over the entire period.
+// 4. The greatest increase in Profit/Losses (date and amount) over the entire period.
   //need a var for greatest increase
-  // on each iteration, compare the current change in profitloss to the previous
-  //if change is more, replace what's currently stored
+  // greatest increase = nextProfit - current profit if greater than the last iteration
+  // if profitLoss > greatest increase then change value, else continue
+
 
 // The greatest decrease in Profit/Losses (date and amount) over the entire period.
   //need a var for greatest decrease
